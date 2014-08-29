@@ -9,8 +9,7 @@ import org.apache.commons.io.FileUtils;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -18,7 +17,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 public class ToDoActivity extends Activity {
@@ -39,7 +38,7 @@ public class ToDoActivity extends Activity {
         lvItems = (ListView)findViewById(R.id.lvListItems);
         addedItem = (EditText)findViewById(R.id.etNewItem);
         
-        // Populate To Do list with entries from file
+        // Populate To Do list in local array with entries from file
         readItems();
         
         // Create adapter between the To Do item list and the array list 
@@ -55,7 +54,8 @@ public class ToDoActivity extends Activity {
     private void setupListViewListener() {
     	
 		lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
-
+		
+			// Method executed on a long click on a to-do item entry -> results in removal of the item from the list
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -66,6 +66,7 @@ public class ToDoActivity extends Activity {
 				
 				// Update the todo items list in the file
 				writeItems();
+				
 				return true;
 			}
 			
@@ -73,11 +74,12 @@ public class ToDoActivity extends Activity {
 		
 		lvItems.setOnItemClickListener(new OnItemClickListener() {
 		
+			// Method executed on a single click on a to-do item entry -> results in the edit item screen being shown
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				
-				// Bring up the edit form activity using an "Intent"  To properly load the form data, pass along the 
-				// text and position of that item to the second activity using "extras" 
+				// Bring up the edit form activity using an "Intent"  To properly load the edit form data, pass along the 
+				// text and position of that item to the edit activity using "extras" 
 				
 				Intent edit_item_intent = new Intent(ToDoActivity.this, EditItemActivity.class);
 				
@@ -86,7 +88,7 @@ public class ToDoActivity extends Activity {
 				edit_item_intent.putExtra("position", position);
 				edit_item_intent.putExtra("edit_item_text", toDoItems.get(position)); 
 				
-				// brings up the Edit Item activity
+				// Bring up the Edit Item activity
 				startActivityForResult(edit_item_intent, REQUEST_CODE); 
 			}
 			
@@ -94,7 +96,7 @@ public class ToDoActivity extends Activity {
 			
 	}
 
-    // Method to handle the result of the sub-activity
+    // Method to handle the result of the Edit item sub-activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
       
@@ -104,7 +106,7 @@ public class ToDoActivity extends Activity {
          int position = data.getExtras().getInt("position");
          String edited_item = data.getExtras().getString("edited_item");
          
-         // Toast the name to display temporarily on screen
+         // Toast the edited item name to display temporarily on screen
          Toast.makeText(this, edited_item, Toast.LENGTH_SHORT).show();
          
          // Update the todo items list with the edited item at the correct position
@@ -123,16 +125,19 @@ public class ToDoActivity extends Activity {
     	// Obtain the entered new item and update the To Do item list
     	String addedItemString = addedItem.getText().toString();
     	itemsAdapter.add(addedItemString);
+    	
     	writeItems();
     	
     	// Clear the new item entry box
     	addedItem.setText("");
     }
     
+    // Method to read all to-do item entries from file into local array
     private void readItems() {
     	
     	File filesDir = getFilesDir();
     	File toDoFile = new File(filesDir,"todo.txt");
+    	
     	try{
     		toDoItems = new ArrayList<String>(FileUtils.readLines(toDoFile));
     	}
@@ -142,6 +147,7 @@ public class ToDoActivity extends Activity {
     	
     }
     
+    // Method to write all to-do item entries from local array to file
     private void writeItems(){
     	File filesDir = getFilesDir();
     	File toDoFile = new File(filesDir,"todo.txt");

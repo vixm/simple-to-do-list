@@ -3,11 +3,9 @@ package com.proj.apps.simpletodolist;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ListView;
 
 public class EditItemActivity extends Activity {
 
@@ -23,7 +21,7 @@ public class EditItemActivity extends Activity {
         // Get the handles to the Edit Item box
         EditItem = (EditText)findViewById(R.id.etEditToDoItem);
 		
-		// Extract the text field sent from Main activity for the to do item
+		// Extract the position and text field sent from Main activity for the to do item
         position = getIntent().getIntExtra("position", 0);
         String EditItemString = getIntent().getStringExtra("edit_item_text");
         
@@ -36,16 +34,15 @@ public class EditItemActivity extends Activity {
              
 	}
 
-	// Method executed on clicking the Save button
+	// Method executed on clicking the Save button for the edite item
     public void onSaveItem(View v) {
     	
     	// Obtain the modified new item 
     	String EditItemString = EditItem.getText().toString();
     	
-    	// Pass the modified new item to the main activity screen
+    	// Pass the modified new item and the original position of the to-do item to the main activity screen
     	Intent data = new Intent();
     	
-    	// Pass relevant data back as a result
     	data.putExtra("position", position);
     	data.putExtra("edited_item", EditItemString);
     	
