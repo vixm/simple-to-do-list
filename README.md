@@ -16,12 +16,9 @@ Completed user stories:
  Optional: None
 
 Notes:
-Unable to embed animated gif, sending as a separate attachment
 
 Walkthrough of all user stories:
 
-
-
- 
+![Video Walkthrough](todoapp.gif)
 
 GIF created with LiceCap.
