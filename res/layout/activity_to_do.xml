@@ -4,28 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <EditText
-        android:id="@+id/etNewItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:ems="10"
-        android:hint="@string/enter_new_item" >
-
-        <requestFocus />
-    </EditText>
-
-    <ListView
-        android:id="@+id/lvListItems"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnAddItem"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-
-    </ListView>
-
     <Button
         android:id="@+id/btnAddItem"
         android:layout_width="wrap_content"
@@ -34,5 +12,53 @@
         android:layout_alignParentRight="true"
         android:onClick="onAddItem"
         android:text="@string/add_item" />
+
+    <EditText
+        android:id="@+id/etItemDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnAddItem"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/btnAddItem"
+        android:layout_toLeftOf="@+id/btnAddItem"
+        android:ems="10"
+        android:hint="@string/enter_item_due_date"
+        android:inputType="date" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etItemPriority"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="18dp"
+        android:layout_toLeftOf="@+id/btnAddItem"
+        android:ems="10"
+        android:hint="@string/enter_new_item" />
+
+    <EditText
+        android:id="@+id/etItemPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAddItem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="14dp"
+        android:layout_toLeftOf="@+id/btnAddItem"
+        android:ems="10"
+        android:hint="@string/enter_item_priority"
+        android:inputType="number" />
+
+    <ListView
+        android:id="@+id/lvItemList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etItemName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
 
 </RelativeLayout>

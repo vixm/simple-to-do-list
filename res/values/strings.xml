@@ -8,6 +8,14 @@
     <string name="title_activity_edit_item">EditItemActivity</string>
     <string name="save_item">Save</string>
     <string name="edit_item_below">Edit Item Below</string>
-    <string name="edit_item">Edit Item Here</string>
+    <string name="edit_item">Edit to do</string>
+    <string name="priority">Priority</string>
+    <string name="name">Name</string>
+    <string name="duedate">Due Date</string>
+    <string name="edit_priority">Edit priority</string>
+    <string name="edit_due_date">Edit due date</string>
+    <string name="enter_due_date">Enter Due Date</string>
+    <string name="enter_item_priority">Enter priority(def=1)</string>
+    <string name="enter_item_due_date">Enter due date(def=none)</string>
 
 </resources>

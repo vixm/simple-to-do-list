@@ -19,22 +19,38 @@ public final class R {
     public static final class id {
         public static final int btnAddItem=0x7f070005;
         public static final int btnSaveToDo=0x7f070002;
-        public static final int etEditToDoItem=0x7f070000;
-        public static final int etNewItem=0x7f070003;
-        public static final int lvListItems=0x7f070004;
+        public static final int etEditItemDueDate=0x7f070004;
+        public static final int etEditItemName=0x7f070000;
+        public static final int etEditItemPriority=0x7f070003;
+        public static final int etItemDueDate=0x7f070006;
+        public static final int etItemName=0x7f070007;
+        public static final int etItemPriority=0x7f070008;
+        public static final int lvItemList=0x7f070009;
         public static final int tvEditToDoItemBelow=0x7f070001;
+        public static final int tvItemDueDate=0x7f07000c;
+        public static final int tvItemName=0x7f07000a;
+        public static final int tvItemPriority=0x7f07000b;
     }
     public static final class layout {
         public static final int activity_edit_item=0x7f030000;
         public static final int activity_to_do=0x7f030001;
+        public static final int item_to_do=0x7f030002;
     }
     public static final class string {
         public static final int add_item=0x7f050003;
         public static final int app_name=0x7f050000;
+        public static final int duedate=0x7f05000a;
+        public static final int edit_due_date=0x7f05000c;
         public static final int edit_item=0x7f050007;
         public static final int edit_item_below=0x7f050006;
+        public static final int edit_priority=0x7f05000b;
+        public static final int enter_due_date=0x7f05000d;
+        public static final int enter_item_due_date=0x7f05000f;
+        public static final int enter_item_priority=0x7f05000e;
         public static final int enter_new_item=0x7f050002;
         public static final int hello_world=0x7f050001;
+        public static final int name=0x7f050009;
+        public static final int priority=0x7f050008;
         public static final int save_item=0x7f050005;
         public static final int title_activity_edit_item=0x7f050004;
     }

@@ -5,7 +5,7 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <EditText
-        android:id="@+id/etEditToDoItem"
+        android:id="@+id/etEditItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvEditToDoItemBelow"
@@ -18,7 +18,7 @@
         android:id="@+id/tvEditToDoItemBelow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etEditToDoItem"
+        android:layout_alignLeft="@+id/etEditItemName"
         android:layout_alignParentTop="true"
         android:layout_marginTop="35dp"
         android:text="@string/edit_item_below"
@@ -28,10 +28,35 @@
         android:id="@+id/btnSaveToDo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etEditToDoItem"
-        android:layout_below="@+id/etEditToDoItem"
-        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@+id/etEditItemName"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="129dp"
         android:onClick="onSaveItem"
         android:text="@string/save_item" />
+
+    <EditText
+        android:id="@+id/etEditItemPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etEditItemName"
+        android:layout_below="@+id/etEditItemName"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="@string/edit_priority"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/etEditItemDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etEditItemPriority"
+        android:layout_below="@+id/etEditItemPriority"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/edit_due_date"
+        android:inputType="date" />
 
 </RelativeLayout>
